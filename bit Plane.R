@@ -12,6 +12,12 @@ for (i in 1:nrow(matrix_img)) {
 }
 bitPlaneSlicing=function(nL,Level){
   mask=0
+  for (i in 1:nrow(matrix_img)) {
+    for (j in 1:ncol(matrix_img)) {
+      matrix_img[i,j]=as.integer(matrix_img[i,j]*255)
+    }
+  }
+  
   for (i in nL:1) {
     mask=mask+2**(Level-i)
   }
@@ -20,8 +26,8 @@ bitPlaneSlicing=function(nL,Level){
       matrix_img2[i,j]= bitwAnd((matrix_img[i,j]),mask)    
     }
   }  
-  plot(as.cimg(matrix_img2))
+  plot(as.cimg(matrix_img+matrix_img2))
   
 }
-bitPlaneSlicing(4,7)
+bitPlaneSlicing(2,4)
 

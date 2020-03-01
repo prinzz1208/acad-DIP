@@ -17,5 +17,3 @@ for(i in 1:nrow(mat)){
 }
 cimgg<-as.cimg(matc)
 plot(cimgg)
-matc
-

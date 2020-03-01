@@ -28,8 +28,8 @@ pepper=function(n){
   }
   return(m)
 }
-# m=salt(500)
-# m=pepper(500)
+m=salt(500)
+m=pepper(500)
 # m=imnoise(as.matrix(Img))
 plot(as.cimg(m))
 # m=as.matrix(grayscale(img))
@@ -150,8 +150,8 @@ contraHarmonicFilter=function(Q){
   plot(crop.borders(as.cimg(m2+result),nPix=3))
 
 }
-# meanFilter()
-geometricFilter()
+meanFilter()
+# geometricFilter()
 # harmonicFilter()
 # contraHarmonicFilter(1)
 

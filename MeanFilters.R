@@ -1,6 +1,5 @@
 library("imager")
-library(SpatialPack)
-Img=load.image("~/Desktop/Work/Digital Image Processing/lab/rose.jpeg")
+Img=load.image("~/Desktop/Work/Digital Image Processing/gitHub/bird.jpg")
 Img=resize(Img,300,300)
 # Img=channel(resize(Img,400,400),1)
 # m=imnoise(as.matrix((Img)),type = "saltnpepper")
@@ -30,14 +29,14 @@ pepper=function(n){
   return(m)
 }
 # m=salt(500)
-m=pepper(500)
+# m=pepper(500)
 # m=imnoise(as.matrix(Img))
 plot(as.cimg(m))
 # m=as.matrix(grayscale(img))
 # plot(as.cimg(m))
 
 m2=matrix(0,nrow(m)+4,ncol(m)+4)
-result=m2
+  result=m2
 for (i in 1:nrow(m)) {
   for (j in 1:ncol(m)) {
     m2[i+2,j+2]=m[i,j]
@@ -152,7 +151,7 @@ contraHarmonicFilter=function(Q){
 
 }
 # meanFilter()
-# geometricFilter()
+geometricFilter()
 # harmonicFilter()
-contraHarmonicFilter(1)
+# contraHarmonicFilter(1)
 

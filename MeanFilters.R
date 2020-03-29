@@ -3,8 +3,11 @@ Img=load.image("~/Desktop/Work/Digital Image Processing/gitHub/bird.jpg")
 Img=resize(Img,300,300)
 # Img=channel(resize(Img,400,400),1)
 # m=imnoise(as.matrix((Img)),type = "saltnpepper")
-# m=imnoise(as.matrix(grayscale(Img)),sd=0.08)
+m=imnoise(as.matrix(grayscale(Img)),sd=0.08)
 m=as.matrix(grayscale(Img))
+filter=matrix(1,3,3)
+mFil=nrow(filter)
+nFil=ncol(filter)
 
 salt=function(n){
   for (k in seq_len(n))
@@ -28,8 +31,8 @@ pepper=function(n){
   }
   return(m)
 }
-m=salt(500)
-m=pepper(500)
+# m=salt(500)
+# m=pepper(500)
 # m=imnoise(as.matrix(Img))
 plot(as.cimg(m))
 # m=as.matrix(grayscale(img))
@@ -150,8 +153,9 @@ contraHarmonicFilter=function(Q){
   plot(crop.borders(as.cimg(m2+result),nPix=3))
 
 }
-meanFilter()
+# meanFilter()
 # geometricFilter()
 # harmonicFilter()
-# contraHarmonicFilter(1)
+plot(as.cimg(m))
+# contraHarmonicFilter(0.5)
 

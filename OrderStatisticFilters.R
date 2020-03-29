@@ -3,7 +3,7 @@ library(SpatialPack)
 Img=load.image("~/Desktop/Work/Digital Image Processing/lab/test3.png")
 # Img=resize(Img,300,300)
 Img=channel(resize(Img,300,300),1)
-m=imnoise(as.matrix((Img)),type = "saltnpepper",var = 0.2)
+# m=imnoise(as.matrix((Img)),type = "saltnpepper",var = 0.2)
 # m=imnoise(as.matrix(grayscale(Img)),sd=0.1)
 
 # plot(Img)
@@ -16,6 +16,30 @@ nFil=ncol(filter)
 # m=as.matrix(grayscale(img))
 # plot(as.cimg(m))
 
+salt=function(n){
+for (k in seq_len(n))
+  {
+    i=round(runif(1,1,nrow(m)))
+    # i=round(runif(1,1,5))
+    j=round(runif(1,1,ncol(m)))
+    # j=round(runif(1,1,5))
+    m[i,j]=1.00;
+  }
+  return(m)
+}
+pepper=function(n){
+  for (k in seq_len(n))
+  {
+    i=round(runif(1,1,nrow(m)))
+    # i=round(runif(1,1,5))
+    j=round(runif(1,1,ncol(m)))
+    # j=round(runif(1,1,5))
+    m[i,j]=0.00;
+  }
+  return(m)
+}
+m=salt(500)
+m=pepper(500)
 m2=matrix(0,nrow(m)+4,ncol(m)+4)
 result=m2
 for (i in 1:nrow(m)) {
@@ -156,8 +180,8 @@ alphaTrimmedFilter=function(d){
 }
 
 
-# medianFilter()
+medianFilter()
 # maxFilter()
 # minFilter()
-midpointFilter()
+# midpointFilter()
 # alphaTrimmedFilter(2)

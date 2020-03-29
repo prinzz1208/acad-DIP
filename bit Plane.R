@@ -29,5 +29,5 @@ bitPlaneSlicing=function(nL,Level){
   plot(as.cimg(matrix_img+matrix_img2))
   
 }
-bitPlaneSlicing(2,4)
+bitPlaneSlicing(7,8)
 
